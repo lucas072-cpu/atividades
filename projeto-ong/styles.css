@@ -3,381 +3,610 @@
    ================================ */
 
 :root {
-    /* ---------- CORES ---------- */
+  /* ---------- CORES ---------- */
 
-    /* Cores principais */
-    --color-primary: #2E7D32;
-    --color-primary-light: #66BB6A;
-    --color-primary-dark: #1B5E20;
+  /* Cores principais */
+  --color-primary: #2e7d32;
+  --color-primary-light: #66bb6a;
+  --color-primary-dark: #1b5e20;
 
-    /* Cor secundária e destaque */
-    --color-secondary: #81C784;
-    --color-accent: #F57C00;
+  /* Cor secundária e destaque */
+  --color-secondary: #81c784;
+  --color-accent: #f57c00;
 
-    /* Cores neutras */
-    --color-white: #FFFFFF;
-    --color-background: #F5F5F5;
-    --color-gray: #757575;
-    --color-dark-gray: #333333;
-    --color-black: #212121;
+  /* Cores neutras */
+  --color-white: #ffffff;
+  --color-background: #f5f5f5;
+  --color-gray: #757575;
+  --color-dark-gray: #333333;
+  --color-black: #212121;
 
-    /* ---------- TIPOGRAFIA ---------- */
+  /* ---------- TIPOGRAFIA ---------- */
 
-    --font-size-xs: 0.875rem;
-    --font-size-sm: 1rem;
-    --font-size-md: 1.125rem;
-    --font-size-lg: 1.75rem;
-    --font-size-xl: 2.5rem;
+  --font-size-xs: 0.875rem;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.75rem;
+  --font-size-xl: 2.5rem;
 
-    --font-family: Arial, Helvetica, sans-serif;
+  --font-family: Arial, Helvetica, sans-serif;
 
-    /* ---------- ESPAÇAMENTOS ---------- */
+  /* ---------- ESPAÇAMENTOS ---------- */
 
-    --space-1: 0.25rem;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
-    --space-4: 1rem;
-    --space-5: 1.5rem;
-    --space-6: 2rem;
-    --space-7: 3rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
 
-    /* ---------- OUTROS ---------- */
+  /* ---------- OUTROS ---------- */
 
-    --border-radius: 8px;
-    --container-width: 1200px;
+  --border-radius: 8px;
+  --container-width: 1200px;
 }
-
 
 /* ================================
    RESET E CONFIGURAÇÕES GERAIS
    ================================ */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-family);
-    font-size: var(--font-size-sm);
-    line-height: 1.6;
-    color: var(--color-dark-gray);
-    background-color: var(--color-background);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-dark-gray);
+  background-color: var(--color-background);
 }
-
 
 /* ================================
    CABEÇALHO
    ================================ */
 
 header {
-    background-color: var(--color-primary-dark);
-    color: var(--color-white);
-    padding: var(--space-4) var(--space-6);
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+
+  gap: var(--space-4);
 }
-
-header > div {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-}
-
-header img {
-    border-radius: 50%;
-}
-
-header h1 {
-    font-size: var(--font-size-lg);
-}
-
 
 /* ================================
-   NAVEGAÇÃO
+   ÁREA DA LOGO
    ================================ */
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: var(--space-5);
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
 }
 
-nav a {
-    color: var(--color-white);
-    text-decoration: none;
-    font-weight: bold;
+.logo-area img {
+  border-radius: 50%;
 }
 
-nav a:hover,
-nav a:focus {
-    text-decoration: underline;
-    color: var(--color-secondary);
+.logo-area h1 {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  margin: 0;
 }
 
+/* ================================
+   MENU DESKTOP
+   ================================ */
+
+.desktop-menu > ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+
+  list-style: none;
+}
+
+.desktop-menu li {
+  position: relative;
+}
+
+.desktop-menu a {
+  display: block;
+
+  color: var(--color-white);
+  text-decoration: none;
+
+  font-weight: bold;
+
+  padding: var(--space-2) var(--space-3);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.desktop-menu a:hover,
+.desktop-menu a:focus {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+/* ================================
+   MENU DROPDOWN
+   ================================ */
+
+.dropdown .submenu {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  min-width: 200px;
+
+  background-color: var(--color-white);
+
+  padding: var(--space-2);
+
+  border-radius: var(--border-radius);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  list-style: none;
+
+  /* Oculto inicialmente */
+  display: none;
+
+  z-index: 1000;
+}
+
+/* Exibe o dropdown */
+
+.dropdown:hover .submenu,
+.dropdown:focus-within .submenu {
+  display: block;
+}
+
+/* Links internos do dropdown */
+
+.dropdown .submenu a {
+  color: var(--color-dark-gray);
+
+  padding: var(--space-3);
+
+  white-space: nowrap;
+
+  text-decoration: none;
+}
+
+.dropdown .submenu a:hover,
+.dropdown .submenu a:focus {
+  background-color: var(--color-background);
+  color: var(--color-primary-dark);
+}
+
+/* ================================
+   MENU HAMBÚRGUER
+   ================================ */
+
+.mobile-menu {
+  display: none;
+}
+
+/* Ícone do hambúrguer */
+
+.mobile-menu > summary {
+  list-style: none;
+
+  cursor: pointer;
+
+  font-size: 2rem;
+
+  color: var(--color-white);
+
+  padding: var(--space-2);
+
+  line-height: 1;
+}
+
+/* Remove o marcador padrão */
+
+.mobile-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ================================
+   MENU MOBILE ABERTO
+   ================================ */
+
+.mobile-menu[open] nav {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  background-color: var(--color-primary-dark);
+
+  padding: var(--space-4);
+
+  z-index: 1000;
+}
+
+/* Lista principal mobile */
+
+.mobile-menu nav > ul {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--space-2);
+
+  list-style: none;
+}
+
+/* Links mobile */
+
+.mobile-menu nav a {
+  display: block;
+
+  color: var(--color-white);
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  padding: var(--space-3);
+
+  border-radius: var(--border-radius);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.mobile-menu nav a:hover,
+.mobile-menu nav a:focus {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ================================
+   SUBMENU MOBILE
+   ================================ */
+
+.mobile-menu nav details {
+  width: 100%;
+}
+
+.mobile-menu nav details summary {
+  color: var(--color-white);
+
+  cursor: pointer;
+
+  padding: var(--space-3);
+
+  font-weight: bold;
+
+  list-style: none;
+}
+
+.mobile-menu nav details summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-menu .submenu {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--space-1);
+
+  padding-left: var(--space-4);
+
+  list-style: none;
+}
 
 /* ================================
    CONTEÚDO PRINCIPAL
    ================================ */
 
 main {
-    width: min(100% - 2rem, var(--container-width));
-    margin: 0 auto;
+  width: min(100% - 2rem, var(--container-width));
 
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--space-5);
+  margin: 0 auto;
 
+  display: grid;
+
+  /* GRID DE 12 COLUNAS */
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: var(--space-5);
 }
 
+/* Todas as seções ocupam as 12 colunas */
+
 main > section {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 section {
-    padding: var(--space-7) 0;
+  padding: var(--space-7) 0;
 }
 
+/* ================================
+   TÍTULOS
+   ================================ */
+
 h1 {
-    font-size: var(--font-size-xl);
-    color: var(--color-primary-dark);
-    margin-bottom: var(--space-4);
+  font-size: var(--font-size-xl);
+
+  color: var(--color-primary-dark);
+
+  margin-bottom: var(--space-4);
 }
 
 h2 {
-    font-size: var(--font-size-lg);
-    color: var(--color-primary-dark);
-    margin-bottom: var(--space-4);
+  font-size: var(--font-size-lg);
+
+  color: var(--color-primary-dark);
+
+  margin-bottom: var(--space-4);
 }
 
 h3 {
-    font-size: var(--font-size-md);
-    color: var(--color-primary-dark);
-    margin-bottom: var(--space-3);
+  font-size: var(--font-size-md);
+
+  color: var(--color-primary-dark);
+
+  margin-bottom: var(--space-3);
 }
 
 p {
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+
+  margin-bottom: var(--space-4);
 }
 
-
 /* ================================
-   LINKS E BOTÕES
+   LINKS
    ================================ */
 
 a {
-    color: var(--color-primary-dark);
+  color: var(--color-primary-dark);
 }
 
 main a {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 main a:hover,
 main a:focus {
-    color: var(--color-accent);
+  color: var(--color-accent);
 }
 
+/* ================================
+   BOTÕES
+   ================================ */
+
 button {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--border-radius);
-    padding: var(--space-3) var(--space-5);
-    font-size: var(--font-size-sm);
-    font-weight: bold;
-    cursor: pointer;
+  background-color: var(--color-primary);
+
+  color: var(--color-white);
+
+  border: none;
+
+  border-radius: var(--border-radius);
+
+  padding: var(--space-3) var(--space-5);
+
+  font-size: var(--font-size-sm);
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
 }
 
 button:hover,
 button:focus {
-    background-color: var(--color-primary-dark);
+  background-color: var(--color-primary-dark);
 }
-
 
 /* ================================
    CARDS
    ================================ */
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--space-5);
+  display: grid;
+
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: var(--space-5);
+
+  margin-top: var(--space-5);
 }
 
 .cards article {
-    grid-column: span 6;
+  grid-column: span 6;
 }
 
 article {
-    background-color: var(--color-white);
-    padding: var(--space-5);
-    border-radius: var(--border-radius);
-    border: 1px solid #DDDDDD;
+  background-color: var(--color-white);
+
+  padding: var(--space-5);
+
+  border-radius: var(--border-radius);
+
+  border: 1px solid #dddddd;
+
+  transition: transform 0.2s ease;
 }
 
 article:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
-
 
 /* ================================
    FORMULÁRIO
    ================================ */
 
 form {
-    background-color: var(--color-white);
-    padding: var(--space-6);
-    border-radius: var(--border-radius);
-    margin: var(--space-6) auto;
-    max-width: 800px;
+  background-color: var(--color-white);
+
+  padding: var(--space-6);
+
+  border-radius: var(--border-radius);
+
+  margin: var(--space-6) auto;
+
+  max-width: 800px;
 }
 
 fieldset {
-    border: 1px solid #CCCCCC;
-    border-radius: var(--border-radius);
-    padding: var(--space-5);
-    margin-bottom: var(--space-5);
+  border: 1px solid #cccccc;
+
+  border-radius: var(--border-radius);
+
+  padding: var(--space-5);
+
+  margin-bottom: var(--space-5);
 }
 
 legend {
-    color: var(--color-primary-dark);
-    font-weight: bold;
-    padding: 0 var(--space-2);
+  color: var(--color-primary-dark);
+
+  font-weight: bold;
+
+  padding: 0 var(--space-2);
 }
 
 label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: var(--space-1);
+  display: block;
+
+  font-weight: bold;
+
+  margin-bottom: var(--space-1);
 }
 
 input,
 select {
-    width: 100%;
-    padding: var(--space-3);
-    margin-bottom: var(--space-4);
-    border: 1px solid var(--color-gray);
-    border-radius: 4px;
-    font-size: var(--font-size-sm);
+  width: 100%;
+
+  padding: var(--space-3);
+
+  margin-bottom: var(--space-4);
+
+  border: 1px solid var(--color-gray);
+
+  border-radius: 4px;
+
+  font-size: var(--font-size-sm);
 }
 
 input:focus,
 select:focus {
-    outline: 3px solid var(--color-secondary);
-    border-color: var(--color-primary);
-}
+  outline: 3px solid var(--color-secondary);
 
+  border-color: var(--color-primary);
+}
 
 /* ================================
    LISTAS
    ================================ */
 
 ul {
-    padding-left: var(--space-5);
+  padding-left: var(--space-5);
 }
 
 li {
-    margin-bottom: var(--space-2);
+  margin-bottom: var(--space-2);
 }
-
 
 /* ================================
    RODAPÉ
    ================================ */
 
 footer {
-    background-color: var(--color-black);
-    color: var(--color-white);
-    padding: var(--space-6);
-    text-align: center;
-    margin-top: var(--space-7);
+  background-color: var(--color-black);
+
+  color: var(--color-white);
+
+  padding: var(--space-6);
+
+  text-align: center;
+
+  margin-top: var(--space-7);
 }
 
 footer h2 {
-    color: var(--color-white);
+  color: var(--color-white);
 }
 
 footer a {
-    color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
-
-/* ================================
-   RESPONSIVIDADE
-   ================================ */
-
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header > div {
-        justify-content: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--space-3);
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: var(--font-size-lg);
-    }
-
-    h2 {
-        font-size: var(--font-size-md);
-    }
-
-    section {
-        padding: var(--space-6) 0;
-    }
-}
 /* ================================
    BREAKPOINT 1 - 480px
    Smartphones pequenos
    ================================ */
 
 @media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr;
 
-    main {
-        grid-template-columns: 1fr;
-        gap: var(--space-3);
-    }
+    gap: var(--space-3);
+  }
 
-    main > section {
-        grid-column: 1;
-    }
+  main > section {
+    grid-column: 1;
+  }
 
-    .cards {
-        grid-template-columns: 1fr;
-    }
+  .cards {
+    grid-template-columns: 1fr;
+  }
 
-    .cards article {
-        grid-column: 1;
-    }
+  .cards article {
+    grid-column: 1;
+  }
 
-    header h1 {
-        font-size: var(--font-size-md);
-    }
+  .logo-area img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-area h1 {
+    font-size: var(--font-size-md);
+  }
+
+  h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  h2 {
+    font-size: var(--font-size-md);
+  }
+
+  section {
+    padding: var(--space-6) 0;
+  }
 }
-
 
 /* ================================
    BREAKPOINT 2 - 576px
@@ -385,24 +614,22 @@ footer a {
    ================================ */
 
 @media (min-width: 481px) and (max-width: 576px) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-    main {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  main > section {
+    grid-column: 1 / -1;
+  }
 
-    main > section {
-        grid-column: 1 / -1;
-    }
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-    .cards {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .cards article {
-        grid-column: span 4;
-    }
+  .cards article {
+    grid-column: span 4;
+  }
 }
-
 
 /* ================================
    BREAKPOINT 3 - 768px
@@ -410,28 +637,52 @@ footer a {
    ================================ */
 
 @media (min-width: 577px) and (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(8, 1fr);
+  }
 
-    main {
-        grid-template-columns: repeat(8, 1fr);
-    }
+  main > section {
+    grid-column: 1 / -1;
+  }
 
-    main > section {
-        grid-column: 1 / -1;
-    }
+  .cards {
+    grid-template-columns: repeat(8, 1fr);
+  }
 
-    .cards {
-        grid-template-columns: repeat(8, 1fr);
-    }
+  .cards article {
+    grid-column: span 4;
+  }
 
-    .cards article {
-        grid-column: span 4;
-    }
-
-    header {
-        flex-direction: row;
-    }
+  section {
+    padding: var(--space-6) 0;
+  }
 }
 
+/* ================================
+   MENU MOBILE ATÉ 768px
+   ================================ */
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  header {
+    flex-direction: row;
+
+    text-align: left;
+
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .logo-area {
+    justify-content: center;
+  }
+}
 
 /* ================================
    BREAKPOINT 4 - 992px
@@ -439,51 +690,49 @@ footer a {
    ================================ */
 
 @media (min-width: 769px) and (max-width: 992px) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
+  }
 
-    main {
-        grid-template-columns: repeat(12, 1fr);
-    }
+  main > section {
+    grid-column: 1 / -1;
+  }
 
-    main > section {
-        grid-column: 1 / -1;
-    }
+  .cards {
+    grid-template-columns: repeat(12, 1fr);
+  }
 
-    .cards {
-        grid-template-columns: repeat(12, 1fr);
-    }
-
-    .cards article {
-        grid-column: span 6;
-    }
+  .cards article {
+    grid-column: span 6;
+  }
 }
-
 
 /* ================================
    BREAKPOINT 5 - 1200px
-   Desktops e telas panorâmicas
+   Desktops
    ================================ */
 
 @media (min-width: 993px) and (max-width: 1200px) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
 
-    main {
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--space-6);
-    }
+    gap: var(--space-6);
+  }
 
-    main > section {
-        grid-column: 1 / -1;
-    }
+  main > section {
+    grid-column: 1 / -1;
+  }
 
-    .cards {
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--space-6);
-    }
+  .cards {
+    grid-template-columns: repeat(12, 1fr);
 
-    .cards article {
-        grid-column: span 6;
-    }
+    gap: var(--space-6);
+  }
+
+  .cards article {
+    grid-column: span 6;
+  }
 }
-
 
 /* ================================
    TELAS ACIMA DE 1200px
@@ -491,22 +740,31 @@ footer a {
    ================================ */
 
 @media (min-width: 1201px) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
 
-    main {
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--space-7);
-    }
+    gap: var(--space-7);
+  }
 
-    main > section {
-        grid-column: 1 / -1;
-    }
+  main > section {
+    grid-column: 1 / -1;
+  }
 
-    .cards {
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--space-6);
-    }
+  .cards {
+    grid-template-columns: repeat(12, 1fr);
 
-    .cards article {
-        grid-column: span 6;
-    }
+    gap: var(--space-6);
+  }
+
+  .cards article {
+    grid-column: span 6;
+  }
+
+  .desktop-menu {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
 }

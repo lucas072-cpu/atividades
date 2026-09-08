@@ -12,20 +12,60 @@
 
 <body>
 
-    <header>
-        <div>
-            <img height="48" width="48" src="./assets/logo.jpg" alt="Logo da ONG Esperança, um coração branco com fundo verde">
-            <h1>ONG Esperança</h1>
-        </div>
+<header>
+    <div class="logo-area">
+        <img
+            height="48"
+            width="48"
+            src="./assets/logo.jpg"
+            alt="Logo da ONG Esperança, um coração branco com fundo verde"
+        >
+        <h1>ONG Esperança</h1>
+    </div>
 
-        <nav>
+    <!-- Botão hambúrguer -->
+    <details class="mobile-menu">
+        <summary aria-label="Abrir menu de navegação">☰</summary>
+
+        <nav aria-label="Navegação principal">
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
+
+                <li>
+                    <details>
+                        <summary>Projetos</summary>
+                        <ul class="submenu">
+                            <li><a href="projetos.html">Todos os projetos</a></li>
+                            <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
+                            <li><a href="projetos.html#doacoes">Doações</a></li>
+                        </ul>
+                    </details>
+                </li>
+
                 <li><a href="cadastro.html">Cadastro</a></li>
             </ul>
         </nav>
-    </header>
+    </details>
+
+    <!-- Menu desktop -->
+    <nav class="desktop-menu" aria-label="Navegação principal">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+
+            <li class="dropdown">
+                <a href="projetos.html">Projetos</a>
+
+                <ul class="submenu">
+                    <li><a href="projetos.html">Todos os projetos</a></li>
+                    <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
+                    <li><a href="projetos.html#doacoes">Doações</a></li>
+                </ul>
+            </li>
+
+            <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
 
