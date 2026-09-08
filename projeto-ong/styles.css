@@ -1,0 +1,339 @@
+/* ================================
+   DESIGN SYSTEM - ONG ESPERANÇA
+   ================================ */
+
+:root {
+    /* ---------- CORES ---------- */
+
+    /* Cores principais */
+    --color-primary: #2E7D32;
+    --color-primary-light: #66BB6A;
+    --color-primary-dark: #1B5E20;
+
+    /* Cor secundária e destaque */
+    --color-secondary: #81C784;
+    --color-accent: #F57C00;
+
+    /* Cores neutras */
+    --color-white: #FFFFFF;
+    --color-background: #F5F5F5;
+    --color-gray: #757575;
+    --color-dark-gray: #333333;
+    --color-black: #212121;
+
+    /* ---------- TIPOGRAFIA ---------- */
+
+    --font-size-xs: 0.875rem;
+    --font-size-sm: 1rem;
+    --font-size-md: 1.125rem;
+    --font-size-lg: 1.75rem;
+    --font-size-xl: 2.5rem;
+
+    --font-family: Arial, Helvetica, sans-serif;
+
+    /* ---------- ESPAÇAMENTOS ---------- */
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+
+    /* ---------- OUTROS ---------- */
+
+    --border-radius: 8px;
+    --container-width: 1200px;
+}
+
+
+/* ================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    color: var(--color-dark-gray);
+    background-color: var(--color-background);
+}
+
+
+/* ================================
+   CABEÇALHO
+   ================================ */
+
+header {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--space-4) var(--space-6);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+header img {
+    border-radius: 50%;
+}
+
+header h1 {
+    font-size: var(--font-size-lg);
+}
+
+
+/* ================================
+   NAVEGAÇÃO
+   ================================ */
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--space-5);
+}
+
+nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover,
+nav a:focus {
+    text-decoration: underline;
+    color: var(--color-secondary);
+}
+
+
+/* ================================
+   CONTEÚDO PRINCIPAL
+   ================================ */
+
+main {
+    width: min(100% - 2rem, var(--container-width));
+    margin: 0 auto;
+}
+
+section {
+    padding: var(--space-7) 0;
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-4);
+}
+
+h2 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-4);
+}
+
+h3 {
+    font-size: var(--font-size-md);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-3);
+}
+
+p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-4);
+}
+
+
+/* ================================
+   LINKS E BOTÕES
+   ================================ */
+
+a {
+    color: var(--color-primary-dark);
+}
+
+main a {
+    font-weight: bold;
+}
+
+main a:hover,
+main a:focus {
+    color: var(--color-accent);
+}
+
+button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-size-sm);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus {
+    background-color: var(--color-primary-dark);
+}
+
+
+/* ================================
+   CARDS
+   ================================ */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+}
+
+article {
+    background-color: var(--color-white);
+    padding: var(--space-5);
+    border-radius: var(--border-radius);
+    border: 1px solid #DDDDDD;
+}
+
+article:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ================================
+   FORMULÁRIO
+   ================================ */
+
+form {
+    background-color: var(--color-white);
+    padding: var(--space-6);
+    border-radius: var(--border-radius);
+    margin: var(--space-6) auto;
+    max-width: 800px;
+}
+
+fieldset {
+    border: 1px solid #CCCCCC;
+    border-radius: var(--border-radius);
+    padding: var(--space-5);
+    margin-bottom: var(--space-5);
+}
+
+legend {
+    color: var(--color-primary-dark);
+    font-weight: bold;
+    padding: 0 var(--space-2);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: var(--space-1);
+}
+
+input,
+select {
+    width: 100%;
+    padding: var(--space-3);
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--color-gray);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+}
+
+input:focus,
+select:focus {
+    outline: 3px solid var(--color-secondary);
+    border-color: var(--color-primary);
+}
+
+
+/* ================================
+   LISTAS
+   ================================ */
+
+ul {
+    padding-left: var(--space-5);
+}
+
+li {
+    margin-bottom: var(--space-2);
+}
+
+
+/* ================================
+   RODAPÉ
+   ================================ */
+
+footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: var(--space-6);
+    text-align: center;
+    margin-top: var(--space-7);
+}
+
+footer h2 {
+    color: var(--color-white);
+}
+
+footer a {
+    color: var(--color-secondary);
+}
+
+
+/* ================================
+   RESPONSIVIDADE
+   ================================ */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header > div {
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3);
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    h2 {
+        font-size: var(--font-size-md);
+    }
+
+    section {
+        padding: var(--space-6) 0;
+    }
+}
