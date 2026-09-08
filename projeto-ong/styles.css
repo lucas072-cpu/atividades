@@ -1,55 +1,25 @@
-/* ================================
-   DESIGN SYSTEM - ONG ESPERANÇA
-   ================================ */
+/* =========================
+   DESIGN SYSTEM
+   ========================= */
 
 :root {
-  /* ---------- CORES ---------- */
+  --primary: #2e7d32;
+  --primary-dark: #1b5e20;
+  --secondary: #81c784;
+  --accent: #f57c00;
+  --white: #fff;
+  --background: #f5f5f5;
+  --gray: #757575;
+  --dark: #333;
 
-  /* Cores principais */
-  --color-primary: #2e7d32;
-  --color-primary-light: #66bb6a;
-  --color-primary-dark: #1b5e20;
-
-  /* Cor secundária e destaque */
-  --color-secondary: #81c784;
-  --color-accent: #f57c00;
-
-  /* Cores neutras */
-  --color-white: #ffffff;
-  --color-background: #f5f5f5;
-  --color-gray: #757575;
-  --color-dark-gray: #333333;
-  --color-black: #212121;
-
-  /* ---------- TIPOGRAFIA ---------- */
-
-  --font-size-xs: 0.875rem;
-  --font-size-sm: 1rem;
-  --font-size-md: 1.125rem;
-  --font-size-lg: 1.75rem;
-  --font-size-xl: 2.5rem;
-
-  --font-family: Arial, Helvetica, sans-serif;
-
-  /* ---------- ESPAÇAMENTOS ---------- */
-
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-
-  /* ---------- OUTROS ---------- */
-
-  --border-radius: 8px;
-  --container-width: 1200px;
+  --space: 1rem;
+  --radius: 8px;
+  --max-width: 1200px;
 }
 
-/* ================================
-   RESET E CONFIGURAÇÕES GERAIS
-   ================================ */
+/* =========================
+   RESET
+   ========================= */
 
 * {
   box-sizing: border-box;
@@ -62,40 +32,41 @@ html {
 }
 
 body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  color: var(--color-dark-gray);
-  background-color: var(--color-background);
+  color: var(--dark);
+  background: var(--background);
 }
 
-/* ================================
-   CABEÇALHO
-   ================================ */
+a {
+  color: var(--primary-dark);
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: var(--space);
+}
+
+/* =========================
+   HEADER + FLEXBOX
+   ========================= */
 
 header {
-  background-color: var(--color-primary-dark);
-  color: var(--color-white);
-
-  padding: var(--space-4) var(--space-6);
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--space);
 
-  position: relative;
+  padding: 1rem 2rem;
 
-  gap: var(--space-4);
+  background: var(--primary-dark);
+  color: var(--white);
 }
-
-/* ================================
-   ÁREA DA LOGO
-   ================================ */
 
 .logo-area {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 0.75rem;
 }
 
 .logo-area img {
@@ -103,20 +74,17 @@ header {
 }
 
 .logo-area h1 {
-  color: var(--color-white);
-  font-size: var(--font-size-lg);
-  margin: 0;
+  color: var(--white);
+  font-size: 1.4rem;
 }
 
-/* ================================
+/* =========================
    MENU DESKTOP
-   ================================ */
+   ========================= */
 
-.desktop-menu > ul {
+.desktop-menu ul {
   display: flex;
-  align-items: center;
-  gap: var(--space-5);
-
+  gap: 1.2rem;
   list-style: none;
 }
 
@@ -126,543 +94,421 @@ header {
 
 .desktop-menu a {
   display: block;
-
-  color: var(--color-white);
+  padding: 0.5rem 0.75rem;
+  color: var(--white);
   text-decoration: none;
 
-  font-weight: bold;
-
-  padding: var(--space-2) var(--space-3);
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+  transition: 0.2s;
 }
 
 .desktop-menu a:hover,
 .desktop-menu a:focus {
-  color: var(--color-secondary);
+  color: var(--secondary);
   text-decoration: underline;
 }
 
-/* ================================
-   MENU DROPDOWN
-   ================================ */
+/* =========================
+   DROPDOWN
+   ========================= */
 
 .dropdown .submenu {
-  position: absolute;
+  display: none;
 
+  position: absolute;
   top: 100%;
   left: 0;
 
   min-width: 200px;
+  padding: 0.5rem;
 
-  background-color: var(--color-white);
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 15px #0003;
 
-  padding: var(--space-2);
-
-  border-radius: var(--border-radius);
-
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-  list-style: none;
-
-  /* Oculto inicialmente */
-  display: none;
-
-  z-index: 1000;
+  z-index: 10;
 }
-
-/* Exibe o dropdown */
 
 .dropdown:hover .submenu,
 .dropdown:focus-within .submenu {
   display: block;
 }
 
-/* Links internos do dropdown */
-
 .dropdown .submenu a {
-  color: var(--color-dark-gray);
-
-  padding: var(--space-3);
-
-  white-space: nowrap;
-
-  text-decoration: none;
+  color: var(--dark);
 }
 
 .dropdown .submenu a:hover,
 .dropdown .submenu a:focus {
-  background-color: var(--color-background);
-  color: var(--color-primary-dark);
+  background: var(--background);
+  color: var(--primary-dark);
 }
 
-/* ================================
-   MENU HAMBÚRGUER
-   ================================ */
+/* =========================
+   MENU MOBILE
+   ========================= */
 
 .mobile-menu {
   display: none;
 }
 
-/* Ícone do hambúrguer */
-
 .mobile-menu > summary {
-  list-style: none;
-
   cursor: pointer;
-
+  color: var(--white);
   font-size: 2rem;
-
-  color: var(--color-white);
-
-  padding: var(--space-2);
-
-  line-height: 1;
+  list-style: none;
 }
-
-/* Remove o marcador padrão */
 
 .mobile-menu > summary::-webkit-details-marker {
   display: none;
 }
 
-/* ================================
-   MENU MOBILE ABERTO
-   ================================ */
-
 .mobile-menu[open] nav {
   position: absolute;
-
   top: 100%;
   left: 0;
 
   width: 100%;
+  padding: 1rem;
 
-  background-color: var(--color-primary-dark);
-
-  padding: var(--space-4);
-
-  z-index: 1000;
+  background: var(--primary-dark);
+  z-index: 20;
 }
 
-/* Lista principal mobile */
-
-.mobile-menu nav > ul {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: var(--space-2);
-
+.mobile-menu nav ul {
   list-style: none;
 }
 
-/* Links mobile */
-
-.mobile-menu nav a {
+.mobile-menu nav a,
+.mobile-menu nav summary {
   display: block;
-
-  color: var(--color-white);
-
+  padding: 0.75rem;
+  color: var(--white);
   text-decoration: none;
-
-  font-weight: bold;
-
-  padding: var(--space-3);
-
-  border-radius: var(--border-radius);
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.mobile-menu nav a:hover,
-.mobile-menu nav a:focus {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-}
-
-/* ================================
-   SUBMENU MOBILE
-   ================================ */
-
-.mobile-menu nav details {
-  width: 100%;
-}
-
-.mobile-menu nav details summary {
-  color: var(--color-white);
-
-  cursor: pointer;
-
-  padding: var(--space-3);
-
-  font-weight: bold;
-
-  list-style: none;
-}
-
-.mobile-menu nav details summary::-webkit-details-marker {
-  display: none;
 }
 
 .mobile-menu .submenu {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: var(--space-1);
-
-  padding-left: var(--space-4);
-
-  list-style: none;
+  padding-left: 1rem;
 }
 
-/* ================================
-   CONTEÚDO PRINCIPAL
-   ================================ */
+.mobile-menu nav a:hover,
+.mobile-menu nav a:focus,
+.mobile-menu nav summary:hover {
+  background: var(--primary);
+}
+
+/* =========================
+   GRID PRINCIPAL
+   ========================= */
 
 main {
-  width: min(100% - 2rem, var(--container-width));
-
-  margin: 0 auto;
+  width: min(90%, var(--max-width));
+  margin: auto;
 
   display: grid;
-
-  /* GRID DE 12 COLUNAS */
   grid-template-columns: repeat(12, 1fr);
-
-  gap: var(--space-5);
+  gap: 2rem;
 }
-
-/* Todas as seções ocupam as 12 colunas */
 
 main > section {
   grid-column: 1 / -1;
+  padding: 2.5rem 0;
 }
 
-section {
-  padding: var(--space-7) 0;
-}
-
-/* ================================
-   TÍTULOS
-   ================================ */
-
-h1 {
-  font-size: var(--font-size-xl);
-
-  color: var(--color-primary-dark);
-
-  margin-bottom: var(--space-4);
+h1,
+h2,
+h3 {
+  color: var(--primary-dark);
+  margin-bottom: 0.75rem;
 }
 
 h2 {
-  font-size: var(--font-size-lg);
-
-  color: var(--color-primary-dark);
-
-  margin-bottom: var(--space-4);
+  font-size: 1.75rem;
 }
 
-h3 {
-  font-size: var(--font-size-md);
+/* =========================
+   PROJETO
+   ========================= */
 
-  color: var(--color-primary-dark);
-
-  margin-bottom: var(--space-3);
-}
-
-p {
-  font-size: var(--font-size-sm);
-
-  margin-bottom: var(--space-4);
-}
-
-/* ================================
-   LINKS
-   ================================ */
-
-a {
-  color: var(--color-primary-dark);
-}
-
-main a {
-  font-weight: bold;
-}
-
-main a:hover,
-main a:focus {
-  color: var(--color-accent);
-}
-
-/* ================================
-   BOTÕES
-   ================================ */
-
-button {
-  background-color: var(--color-primary);
-
-  color: var(--color-white);
-
-  border: none;
-
-  border-radius: var(--border-radius);
-
-  padding: var(--space-3) var(--space-5);
-
-  font-size: var(--font-size-sm);
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition: background-color 0.2s ease;
-}
-
-button:hover,
-button:focus {
-  background-color: var(--color-primary-dark);
-}
-
-/* ================================
-   CARDS
-   ================================ */
-
-.cards {
+.project-grid {
   display: grid;
-
   grid-template-columns: repeat(12, 1fr);
-
-  gap: var(--space-5);
-
-  margin-top: var(--space-5);
 }
 
-.cards article {
-  grid-column: span 6;
+.project-card {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  padding: 2rem;
+
+  background: var(--white);
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+
+  box-shadow: 0 2px 8px #0001;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px #0002;
+}
+
+.project-header {
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   BADGES
+   ========================= */
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  display: inline-block;
+
+  padding: 0.25rem 0.7rem;
+
+  border-radius: 20px;
+
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.badge.active {
+  background: var(--secondary);
+  color: var(--primary-dark);
+}
+
+.badge.volunteer {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.badge.donation {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* =========================
+   ARTIGOS
+   ========================= */
 
 article {
-  background-color: var(--color-white);
+  padding: 1.5rem;
 
-  padding: var(--space-5);
-
-  border-radius: var(--border-radius);
-
-  border: 1px solid #dddddd;
-
-  transition: transform 0.2s ease;
+  background: var(--white);
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
 }
 
-article:hover {
-  transform: translateY(-2px);
+/* =========================
+   BOTÕES
+   ========================= */
+
+button {
+  padding: 0.75rem 1.5rem;
+
+  background: var(--primary);
+  color: var(--white);
+
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.2s;
 }
 
-/* ================================
+button:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 4px 10px #0003;
+}
+
+button:focus {
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================
+   FEEDBACK
+   ========================= */
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feedback-box,
+.alert,
+.modal,
+.toast {
+  padding: 1rem;
+
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid #ddd;
+}
+
+.alert {
+  border-left: 5px solid;
+}
+
+.alert.success {
+  border-color: var(--primary);
+}
+
+.alert.info {
+  border-color: var(--secondary);
+}
+
+.alert.error {
+  border-color: var(--accent);
+}
+
+.toast {
+  background: var(--primary-dark);
+  color: var(--white);
+  border-left: 5px solid var(--secondary);
+}
+
+/* =========================
+   MODAL
+   ========================= */
+
+.modal summary {
+  cursor: pointer;
+
+  padding: 0.75rem;
+
+  background: var(--primary);
+  color: var(--white);
+
+  border-radius: var(--radius);
+  font-weight: bold;
+}
+
+.modal summary:hover,
+.modal summary:focus {
+  background: var(--primary-dark);
+}
+
+.modal-content {
+  padding: 1.5rem 0 0.5rem;
+}
+
+/* =========================
    FORMULÁRIO
-   ================================ */
+   ========================= */
 
 form {
-  background-color: var(--color-white);
-
-  padding: var(--space-6);
-
-  border-radius: var(--border-radius);
-
-  margin: var(--space-6) auto;
-
   max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+
+  background: var(--white);
+  border-radius: var(--radius);
 }
 
 fieldset {
-  border: 1px solid #cccccc;
-
-  border-radius: var(--border-radius);
-
-  padding: var(--space-5);
-
-  margin-bottom: var(--space-5);
-}
-
-legend {
-  color: var(--color-primary-dark);
-
-  font-weight: bold;
-
-  padding: 0 var(--space-2);
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
 }
 
 label {
   display: block;
-
+  margin-bottom: 0.25rem;
   font-weight: bold;
-
-  margin-bottom: var(--space-1);
 }
 
 input,
 select {
   width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
 
-  padding: var(--space-3);
-
-  margin-bottom: var(--space-4);
-
-  border: 1px solid var(--color-gray);
-
+  border: 1px solid var(--gray);
   border-radius: 4px;
-
-  font-size: var(--font-size-sm);
 }
 
 input:focus,
 select:focus {
-  outline: 3px solid var(--color-secondary);
-
-  border-color: var(--color-primary);
+  outline: 3px solid var(--secondary);
+  border-color: var(--primary);
 }
 
-/* ================================
-   LISTAS
-   ================================ */
-
-ul {
-  padding-left: var(--space-5);
+input:valid,
+select:valid {
+  border-color: var(--primary);
 }
 
-li {
-  margin-bottom: var(--space-2);
+input:invalid:not(:placeholder-shown),
+select:invalid {
+  border-color: var(--accent);
 }
 
-/* ================================
-   RODAPÉ
-   ================================ */
+/* =========================
+   FOOTER
+   ========================= */
 
 footer {
-  background-color: var(--color-black);
+  margin-top: 2rem;
+  padding: 2rem;
 
-  color: var(--color-white);
-
-  padding: var(--space-6);
+  background: #212121;
+  color: var(--white);
 
   text-align: center;
-
-  margin-top: var(--space-7);
 }
 
 footer h2 {
-  color: var(--color-white);
+  color: var(--white);
 }
 
 footer a {
-  color: var(--color-secondary);
+  color: var(--secondary);
 }
 
-/* ================================
-   BREAKPOINT 1 - 480px
-   Smartphones pequenos
-   ================================ */
+footer nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
 
+/* =========================
+   5 BREAKPOINTS
+   ========================= */
+
+/* 1 - Smartphones pequenos */
 @media (max-width: 480px) {
   main {
-    grid-template-columns: 1fr;
-
-    gap: var(--space-3);
-  }
-
-  main > section {
-    grid-column: 1;
-  }
-
-  .cards {
+    width: 92%;
     grid-template-columns: 1fr;
   }
 
-  .cards article {
-    grid-column: 1;
-  }
-
-  .logo-area img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .logo-area h1 {
-    font-size: var(--font-size-md);
-  }
-
-  h1 {
-    font-size: var(--font-size-lg);
-  }
-
-  h2 {
-    font-size: var(--font-size-md);
-  }
-
-  section {
-    padding: var(--space-6) 0;
-  }
-}
-
-/* ================================
-   BREAKPOINT 2 - 576px
-   Smartphones maiores
-   ================================ */
-
-@media (min-width: 481px) and (max-width: 576px) {
-  main {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  main > section {
-    grid-column: 1 / -1;
-  }
-
-  .cards {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .cards article {
-    grid-column: span 4;
-  }
-}
-
-/* ================================
-   BREAKPOINT 3 - 768px
-   Tablets
-   ================================ */
-
-@media (min-width: 577px) and (max-width: 768px) {
-  main {
-    grid-template-columns: repeat(8, 1fr);
-  }
-
-  main > section {
-    grid-column: 1 / -1;
-  }
-
-  .cards {
-    grid-template-columns: repeat(8, 1fr);
-  }
-
-  .cards article {
-    grid-column: span 4;
-  }
-
-  section {
-    padding: var(--space-6) 0;
-  }
-}
-
-/* ================================
-   MENU MOBILE ATÉ 768px
-   ================================ */
-
-@media (max-width: 768px) {
   .desktop-menu {
     display: none;
   }
@@ -671,93 +517,56 @@ footer a {
     display: block;
   }
 
-  header {
-    flex-direction: row;
-
-    text-align: left;
-
-    padding: var(--space-3) var(--space-4);
+  .logo-area h1 {
+    font-size: 1.1rem;
   }
 
-  .logo-area {
-    justify-content: center;
+  .project-card {
+    padding: 1rem;
   }
 }
 
-/* ================================
-   BREAKPOINT 4 - 992px
-   Notebooks e desktops menores
-   ================================ */
+/* 2 - Smartphones */
+@media (min-width: 481px) and (max-width: 576px) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+/* 3 - Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+/* 4 - Notebooks */
 @media (min-width: 769px) and (max-width: 992px) {
   main {
     grid-template-columns: repeat(12, 1fr);
   }
-
-  main > section {
-    grid-column: 1 / -1;
-  }
-
-  .cards {
-    grid-template-columns: repeat(12, 1fr);
-  }
-
-  .cards article {
-    grid-column: span 6;
-  }
 }
 
-/* ================================
-   BREAKPOINT 5 - 1200px
-   Desktops
-   ================================ */
-
-@media (min-width: 993px) and (max-width: 1200px) {
+/* 5 - Desktops */
+@media (min-width: 993px) {
   main {
     grid-template-columns: repeat(12, 1fr);
-
-    gap: var(--space-6);
-  }
-
-  main > section {
-    grid-column: 1 / -1;
-  }
-
-  .cards {
-    grid-template-columns: repeat(12, 1fr);
-
-    gap: var(--space-6);
-  }
-
-  .cards article {
-    grid-column: span 6;
-  }
-}
-
-/* ================================
-   TELAS ACIMA DE 1200px
-   Desktop panorâmico
-   ================================ */
-
-@media (min-width: 1201px) {
-  main {
-    grid-template-columns: repeat(12, 1fr);
-
-    gap: var(--space-7);
-  }
-
-  main > section {
-    grid-column: 1 / -1;
-  }
-
-  .cards {
-    grid-template-columns: repeat(12, 1fr);
-
-    gap: var(--space-6);
-  }
-
-  .cards article {
-    grid-column: span 6;
   }
 
   .desktop-menu {
