@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Single-SPA JS Puro</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- CDN corrigido usando o bundle UMD -->
+    <script src="https://cdn.jsdelivr.net/npm/single-spa@5.9.3/lib/umd/single-spa.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="#/">Home</a>
+      <a href="#/sobre">Sobre</a>
+      <a href="#/contato">Contato</a>
+    </nav>
+
+    <main id="single-spa-container"></main>
+
+    <!-- Aplicações -->
+    <script src="js/app-home.js"></script>
+    <script src="js/app-sobre.js"></script>
+    <script src="js/app-contato.js"></script>
+
+    <!-- Inicialização -->
+    <script>
+      singleSpa.start()
+    </script>
+  </body>
+</html>

@@ -23,104 +23,61 @@
         <h1>ONG Esperança</h1>
       </div>
 
-      <!-- Botão hambúrguer -->
       <details class="mobile-menu">
         <summary aria-label="Abrir menu de navegação">☰</summary>
 
         <nav aria-label="Navegação principal">
           <ul>
-            <li><a href="index.html">Início</a></li>
+            <li><a href="#/">Início</a></li>
 
             <li>
               <details>
                 <summary>Projetos</summary>
                 <ul class="submenu">
-                  <li><a href="projetos.html">Todos os projetos</a></li>
-                  <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
-                  <li><a href="projetos.html#doacoes">Doações</a></li>
+                  <li><a href="#/projetos">Todos os projetos</a></li>
+                  <li><a href="#/projetos#voluntariado">Voluntariado</a></li>
+                  <li><a href="#/projetos#doacoes">Doações</a></li>
                 </ul>
               </details>
             </li>
 
-            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="#/cadastro">Cadastro</a></li>
           </ul>
         </nav>
       </details>
 
-      <!-- Menu desktop -->
       <nav class="desktop-menu" aria-label="Navegação principal">
         <ul>
-          <li><a href="index.html">Início</a></li>
+          <li><a href="#/">Início</a></li>
 
           <li class="dropdown">
-            <a href="projetos.html">Projetos</a>
+            <a href="#/projetos">Projetos</a>
 
             <ul class="submenu">
-              <li><a href="projetos.html">Todos os projetos</a></li>
-              <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
-              <li><a href="projetos.html#doacoes">Doações</a></li>
+              <li><a href="#/projetos">Todos os projetos</a></li>
+              <li><a href="#/projetos#voluntariado">Voluntariado</a></li>
+              <li><a href="#/projetos#doacoes">Doações</a></li>
             </ul>
           </li>
 
-          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="#/cadastro">Cadastro</a></li>
         </ul>
       </nav>
     </header>
 
-    <main id="app">
-      <section>
-        <div>
-          <h2>Juntos podemos transformar vidas</h2>
-          <p>
-            A ONG Esperança desenvolve projetos sociais e mobiliza voluntários
-            para ajudar pessoas e comunidades que precisam.
-          </p>
-          <a href="projetos.html">Conheça nossos projetos</a>
-        </div>
-      </section>
-
-      <section>
-        <h2 id="sobre">Sobre a ONG</h2>
-        <p>
-          Nossa organização trabalha para promover ações sociais, incentivar a
-          solidariedade e criar oportunidades para pessoas que desejam
-          contribuir com a comunidade.
-        </p>
-
-        <div class="cards">
-          <article>
-            <h3>Voluntariado</h3>
-            <p>
-              Participe de nossas ações e utilize seu tempo e suas habilidades
-              para ajudar outras pessoas.
-            </p>
-          </article>
-
-          <article>
-            <h3>Doações</h3>
-            <p>
-              Sua contribuição financeira ajuda a manter nossos projetos e
-              ampliar o alcance das nossas campanhas.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="contato">
-        <h2 id="contato">Entre em contato</h2>
-        <p><strong>E-mail:</strong> contato@ongesperanca.org</p>
-        <p><strong>Telefone:</strong> (11) 99999-9999</p>
-        <p><strong>Endereço:</strong> São Paulo - SP</p>
-        <p>
-          Quer fazer parte dessa iniciativa?
-          <a href="cadastro.html">Cadastre-se</a> para estabelecer contato
-          conosco.
-        </p>
-      </section>
-    </main>
+    <main id="single-spa-container"></main>
 
     <footer>
       <p>&copy; 2026 ONG Esperança. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/single-spa@5.9.3/lib/umd/single-spa.min.js"></script>
+    <script src="../js/app-shell.js"></script>
+    <script src="../js/app-home.js"></script>
+    <script src="../js/app-projetos.js"></script>
+    <script src="../js/app-cadastro.js"></script>
+    <script>
+      singleSpa.start()
+    </script>
   </body>
 </html>
